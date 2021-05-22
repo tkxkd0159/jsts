@@ -5,9 +5,22 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "pwa-node",
+            "request": "launch",
+            "name": "Launch Program",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${file}",
+            "preLaunchTask": "tsc: build - tsconfig-debug.json",
+            "outFiles": [
+                "${workspaceFolder}/debug/**/*.js"
+            ]
+        },
+        {
+            "name": "Launch Chrome against localhost",
             "type": "pwa-chrome",
             "request": "launch",
-            "name": "Launch Chrome against localhost",
             "url": "http://127.0.0.1:5500/helloweb.html",
             "webRoot": "${workspaceFolder}"
         }

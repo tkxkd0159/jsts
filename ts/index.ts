@@ -15,4 +15,3 @@ let mine3 = "4.2";
 console.log(studentNumber);
 console.log(myName);
 console.log(defaultMyfunc);
-console.log("NPM test");

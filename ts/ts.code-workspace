@@ -4,5 +4,13 @@
 			"path": "."
 		}
 	],
-	"settings": {}
+	"settings": {
+		"debug.javascript.autoAttachFilter": "smart",
+		"debug.javascript.autoAttachSmartPattern": [
+			"${workspaceFolder}/**",
+			"!**/node_modules/**",
+			"**/$KNOWN_TOOLS$/**",
+			"!**/out/**"
+		]
+	}
 }

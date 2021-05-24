@@ -1,6 +1,9 @@
 {
     "compilerOptions": {
+        "module": "commonjs",
+        "target": "es6",
         "outDir": "debug",
-        "sourceMap": true
+        "sourceMap": true,
+        "importHelpers": true
     }
 }

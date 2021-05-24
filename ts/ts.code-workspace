@@ -5,7 +5,7 @@
 		}
 	],
 	"settings": {
-		"debug.javascript.autoAttachFilter": "smart",
+		"debug.javascript.autoAttachFilter": "disabled",
 		"debug.javascript.autoAttachSmartPattern": [
 			"${workspaceFolder}/**",
 			"!**/node_modules/**",

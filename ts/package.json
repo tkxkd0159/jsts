@@ -13,5 +13,8 @@
   "devDependencies": {
     "@types/node": "^15.6.0",
     "tslib": "^2.2.0"
+  },
+  "dependencies": {
+    "dotenv": "^10.0.0"
   }
 }

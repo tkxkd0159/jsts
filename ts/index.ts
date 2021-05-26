@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 import defaultMyfunc, { studentNumber, myName } from "./modules/my-module";
 
 
@@ -12,8 +14,9 @@ let mine3 = "4.2";
 // document.body.innerHTML = mine2;
 // document.body.innerHTML = mine3;
 
-console.log(studentNumber);
-console.log(myName);
-console.log(defaultMyfunc);
+// console.log(studentNumber);
+// console.log(myName);
+// console.log(defaultMyfunc);
+console.log(`My env is ${process.env.MY_WIN_PATH}`);
 
-(() => {console.log("IIFE")})(); // Immediately Invoked Function Expression
+// (() => {console.log("IIFE")})(); // Immediately Invoked Function Expression

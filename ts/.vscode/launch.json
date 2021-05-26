@@ -7,7 +7,22 @@
         {
             "type": "pwa-node",
             "request": "launch",
-            "name": "Launch Program",
+            "name": "Launch Program with ts-node",
+            "runtimeArgs": [
+                "-r",
+                "C:\\Users\\tkxkd\\AppData\\Roaming\\npm\\node_modules\\ts-node\\register"
+            ],
+            "args": [
+                "${workspaceFolder}/index.ts"
+            ],
+            "env": {
+                "TS_NODE_PROJECT": "tsconfig-debug.json"
+            }
+        },
+        {
+            "type": "pwa-node",
+            "request": "launch",
+            "name": "Launch Program with node",
             "skipFiles": [
                 "<node_internals>/**"
             ],

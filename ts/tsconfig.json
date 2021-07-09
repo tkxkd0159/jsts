@@ -6,6 +6,7 @@
         "target": "es2020",
         "outDir": "out",
         "sourceMap": false,
+        "removeComments": true,
         "strict": true,
         "esModuleInterop": true,
         "skipLibCheck": true,

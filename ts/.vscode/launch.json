@@ -7,6 +7,19 @@
         {
             "type": "pwa-node",
             "request": "launch",
+            "name": "Launch Program with node",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${file}",
+            "preLaunchTask": "tsc: build - tsconfig-debug.json",
+            "outFiles": [
+                "${workspaceFolder}/debug/**/*.js"
+            ]
+        },
+        {
+            "type": "pwa-node",
+            "request": "launch",
             "name": "Launch Program with ts-node",
             "runtimeArgs": [
                 "-r",
@@ -18,19 +31,6 @@
             "env": {
                 "TS_NODE_PROJECT": "tsconfig-debug.json"
             }
-        },
-        {
-            "type": "pwa-node",
-            "request": "launch",
-            "name": "Launch Program with node",
-            "skipFiles": [
-                "<node_internals>/**"
-            ],
-            "program": "${file}",
-            "preLaunchTask": "tsc: build - tsconfig-debug.json",
-            "outFiles": [
-                "${workspaceFolder}/debug/**/*.js"
-            ]
         },
         {
             "name": "Launch Chrome against localhost",

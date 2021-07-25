@@ -13,10 +13,9 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@types/node": "^15.6.0",
+    "@types/node": "^15.14.2",
+    "dotenv": "^10.0.0",
     "tslib": "^2.2.0"
   },
-  "dependencies": {
-    "dotenv": "^10.0.0"
-  }
+  "dependencies": {}
 }

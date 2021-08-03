@@ -1,15 +1,17 @@
 {
     "display": "Node 14",
     "compilerOptions": {
+        "downlevelIteration": true,
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
         "lib": ["es2020"],
         "module": "commonjs",
-        "target": "es2020",
+        "moduleResolution": "node",
         "outDir": "out",
-        "sourceMap": false,
         "removeComments": true,
+        "sourceMap": false,
         "strict": true,
-        "esModuleInterop": true,
         "skipLibCheck": true,
-        "forceConsistentCasingInFileNames": true
+        "target": "es2020"
     }
 }

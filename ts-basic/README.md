@@ -3,10 +3,12 @@
 npm i -g typescript
 npm i -g ts-node
 npm install -D tslib @types/node
+# or
+npm i -D typescript ts-node @types/node
 
 npm run build    # build
 npm run start    # build and run
-ts-node -r dotenv/config index.ts # Direct execution
+npx ts-node -r dotenv/config ./src/index.ts # Direct execution
 
 npm run es6            # Execute js file as es6
 ```

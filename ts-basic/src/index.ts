@@ -1,7 +1,6 @@
-import defaultMyfunc, { studentNumber, myName, Student, ICompany, IPerson } from "./modules/types";
-
-
-console.log(studentNumber);
-console.log(myName);
-console.log(defaultMyfunc);
-console.log(`My env is ${process.env.MY_WIN_PATH}`);
+let numbers: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+let temp = numbers
+            .filter(val => val % 2 != 0)
+            .map(val => val * val)
+            .reduce((result, val) => result * val, 1)
+console.log(temp)

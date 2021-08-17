@@ -2,18 +2,29 @@
 const studentNumber: number = 201902000
 let myName: string = "LJS"
 
-/**
- * Return Cubic value.
- * @param {number} x - Target number
- * @return {number} The cubic value of target number
- */
- function myDfunc(x: number): number { return x * x * x }
+interface NamedParam {
+    x: number
+    y: number
+}
 
- interface ICompany {
-     name: string
-     field: string
-     wage: number
- }
+/**
+* Return Cubic value.
+* @param {number} x - Target number
+* @return {number, number} The cubic value of target number, target nubmer
+*/
+function cubic1(x: number): [number, number] { return [x * x * x, x] }
+function product({x, y}: NamedParam): number { return x * y }
+function printTest(): void {console.log("I am printTest()")}
+
+function isEmpty<T>(array: T[]): boolean {
+    return array.length == 0
+}
+
+interface ICompany {
+    name: string
+    field: string
+    wage: number
+}
  interface IPerson {
     name: string
     age?: number
@@ -49,10 +60,31 @@ class Student  extends Korean {
         this.area = area
     }
 
-    savedVal() {
+    savedVal(): string {
         return `${this.name} ${this.country} ${this.area}`
     }
 }
 
-export default myDfunc
-export { studentNumber, myName, Student, ICompany, IPerson }
+class Calculator {
+    value: number
+
+    constructor(value: number = 0) {
+        this.value = value
+    }
+    add(value: number){
+        this.value += value
+        return this
+    }
+    multiply(value: number){
+        this.value *= value
+        return this
+    }
+}
+
+export default cubic1
+export {
+        studentNumber, myName,
+        Student, Calculator,
+        ICompany, IPerson,
+        printTest, product, isEmpty
+}

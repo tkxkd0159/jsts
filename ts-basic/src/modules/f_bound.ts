@@ -1,6 +1,3 @@
-import { SSL_OP_SSLEAY_080_CLIENT_DH_BUG } from "constants";
-import { repeat } from "ramda";
-
 interface ICalculable<T, Q> {
     add(value: T): this,
     multiply(value: Q): this

@@ -14,7 +14,7 @@
 
         "outDir": "dist",
         "removeComments": true,
-        "sourceMap": false
+        "sourceMap": false,
     },
-    "include": ["src/**/*", "test/test.ts", "src/modules/ethers.ts"]
+    "include": ["src/**/*"]
 }

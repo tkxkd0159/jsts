@@ -20,10 +20,7 @@ const val2 = (new StringComposer('Hello'))
 console.log(val1)
 console.log(val2)
 
-import * as R from 'ramda'
-import { squaredMap, sumArray,  } from "./modules/pointless_f"
-const fourSquare = R.pipe(squaredMap, squaredMap)
-console.log(fourSquare([3, 4]))
 
-let hypotenuse = R.pipe(squaredMap, sumArray, Math.sqrt)
-console.log(hypotenuse([3, 4]))
+
+
+

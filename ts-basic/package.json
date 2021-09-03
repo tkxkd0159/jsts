@@ -4,7 +4,7 @@
   "description": "```\r tsc <typescripts>\r ```",
   "main": "index.js",
   "scripts": {
-    "test": "ts-node ./src/test.ts",
+    "test": "ts-node ./src/ramda_test.ts",
     "es6": "node --experimental-modules --es-module-specifier-resolution=node ./out/index.js",
     "build": "tsc",
     "start": "npm run build && node -r dotenv/config ./out/index.js",

@@ -11,11 +11,18 @@ async function mkdirRecur(path: string, async_: boolean = true) {
 }
 
 async function rmRecur(path: string, async_: boolean = true) {
-    if (!async_) {
-    rmSync(path, {recursive: true, force: true})
-    } else {
-        await fss.rm(path, {recursive: true, force: true})
+    try {
+        if (!async_) {
+            rmSync(path, {recursive: true, force: true})
+            } else {
+                await fss.rm(path, {recursive: true, force: true})
+            }
+    } catch(e) {
+        if (e instanceof Error) {
+            console.log(e.message)
+        }
     }
+
 }
 
 const targetExist = async(fpath: string): Promise<boolean> => {

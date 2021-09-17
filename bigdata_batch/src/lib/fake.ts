@@ -1,5 +1,4 @@
 import Chance from 'chance';
-import { write } from 'fs';
 import {dirname} from 'path';
 
 import {mkdirRecur, fss} from './cfs';

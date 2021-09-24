@@ -1,4 +1,4 @@
-import { opendirSync, readdirSync, rmdirSync, rmSync, mkdirSync} from 'fs';
+import { closeSync, fstatSync, openSync, readSync, rmSync, mkdirSync} from 'fs';
 import * as fss from 'fs/promises';
 
 async function mkdirRecur(path: string, async_: boolean = true) {
@@ -43,7 +43,60 @@ const targetExist = async(fpath: string): Promise<boolean> => {
     }
 };
 
+function readLine(fd: any, buffer: Buffer, buffer_size: number, position: number): [string, number] {
+    let line = "";
+    const cr_size = '\n'.length;
+
+    while (true) {
+        let read_size = readSync(fd, buffer, 0, buffer_size, position)
+        if (read_size > 0) {
+            let tmp = buffer.toString('utf8', 0, read_size);
+            let idx = tmp.indexOf('\n');
+            if (idx > -1) {
+                line += tmp.substr(0, idx)
+                position += idx + cr_size
+                break
+            } else { // 해당 buffer에 \n 존재하지 않을 때, \n 나올 때까지 while 반복
+                line += tmp;
+                position += tmp.length;
+            }
+        }
+        else {
+            position = -1 // end of file
+            break
+        }
+    }
+    return [line.trim(), position]
+}
+
+// 거대한 데이터를 한번에 읽으면 메모리가 많이 필요하므로  Buffer 객체를 활용해 1024 bytes 씩 읽으면서 \n를 기준으로 읽음
+function* readFileGenerator(filename: string): any {
+    let fd: any;
+    try {
+        fd = openSync(filename, 'rs');
+        let stats = fstatSync(fd);
+        let buf_size = Math.min(stats.size, 1024);
+        let buf = Buffer.alloc(buf_size);
+        let file_pos = 0;
+        let line_content: any;
+
+        while(file_pos > - 1) {
+            [line_content, file_pos] = readLine(fd, buf, buf_size, file_pos)
+            if (file_pos > -1) {
+                yield line_content
+            }
+        }
+        yield buf.toString()
+
+    } catch(e: any) {
+        console.error('readLine : ', e.message)
+    } finally {
+        fd && closeSync(fd);
+    }
+}
+
+
 
 export {fss,
-        mkdirRecur, rmRecur, targetExist,
+        mkdirRecur, rmRecur, targetExist, readFileGenerator
         }

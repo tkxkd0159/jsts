@@ -14,7 +14,7 @@
 
         "outDir": "dist",
         "removeComments": true,
-        "sourceMap": false,
+        "sourceMap": true,
     },
     "include": ["src/**/*"]
 }

@@ -18,6 +18,8 @@ app.use(cors())
 ## MongoDB
 Datebase -> Collection -> Document로 이루어짐  
 Document는 일반적으로 json 형태로 각각 고유한 object ID를 가진다  
+컬렉션에 문서 개수가 많아지면 검색 시간이 느려지는데 이를 가속하기 위해 index 생성 가능 (지정한 필드를 기반으로 document들의 포인터로 B-tree 생성)  
+오름차순 정렬일 때는 1, 내림차순 정렬일 때는 -1 (e.g. `{name: 1, age: -1}`) -> 이로 인해 데이터 찾기나 sorting이 빨라짐  
 
 deafult port : 27017  
 ```bash
@@ -50,6 +52,16 @@ db.<colelction>.updateOne(query, update, options)  # db.collections.updateOne({_
 db.<colelction>.deleteOne(query)                   # db.collections.deleteOne({"_id": ObjectId("614daa3dcc5b3a6a3fe26d45")})
 db.<colelction>.deleteMany(query)                  # 해당 쿼리에 걸리는 document 모두 삭제
 db.<collection>.drop()      # 해당 collection 삭제
+db.<collection>.countDocuments([query, option]) # query에 해당되는 document 수
+
+db.<collection>.createIndex(<target_property>)
+db.<collection>.getIndexes()
+db.<collection>.dropIndex(<index_name>)
+db.<collection>.dropIndexes()  # _id 인덱스를 제외한 모든 인덱스 제거
+```
+
+```bash
+db.<collection>.find({}).sort({birthday: -1, name: 1}).skip(100).limit(5) # skip은 앞에 N개 제외, limit 총 보여지는 개수 제한
 ```
 ## React
 ```bash

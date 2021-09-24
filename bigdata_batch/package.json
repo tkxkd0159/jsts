@@ -7,7 +7,8 @@
     "test": "ts-node",
     "start": "ts-node ./src/main.ts",
     "build": "tsc",
-    "gen_bigdata": "ts-node ./src/lib/fake.ts"
+    "gen_bigdata": "ts-node ./src/lib/fake.ts",
+    "save": "ts-node ./src/save_csv_mongo.ts"
   },
   "keywords": [],
   "author": "LJS",

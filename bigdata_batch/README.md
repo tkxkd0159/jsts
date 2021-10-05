@@ -4,6 +4,8 @@
 npm i express cors
 npm i -D @types/cors
 ```
+  
+GET / POST / PUT / DELETE 
 
 ### 1-1) body parser
 ```ts
@@ -24,7 +26,7 @@ Document는 일반적으로 json 형태로 각각 고유한 object ID를 가진�
 deafult port : 27017  
 ```bash
 net start mongodb # as sudo(or administrator)
-mongosh "mongodb://localhost:27017" # mongosh is MongoDB Shell
+mongosh "mongodb://127.0.0.1:27017" # mongosh is MongoDB Shell
 ```
 
 ### Mongosh
@@ -68,7 +70,12 @@ db.<collection>.find({}).sort({birthday: -1, name: 1}).skip(100).limit(5) # skip
 # At root
 npx create-react-app <react_project_name> --template typescript
 ```
-
+JSX(JavaScript XML)는 리액트에서 사용하기 위한 간단한 자바스크립트 확장 언어  
+반드시 `React`를 불러오는 코드가 있어야 함.  
+JSX 코드는 리액트의 컴포넌트의 리턴값으로만 사용 가능
+### React Hook
+`useEffect`  
+페이지가 처음 렌더링 되고 난 후 무조건 한번 실행. 인자로 준 배열 안 변수의 값이 바뀔때마다도 실행됨. (Dependedncy 지정)
 # Scenario
 1. Generate a huge amount of fake data -> column : (`name`, `email`, `job`, `birthday`, `description`)
 2. Save those data as `csv` file
@@ -79,4 +86,5 @@ npx create-react-app <react_project_name> --template typescript
 ```bash
 npm run gen_bigdata  # Make a lot of fake data for testing
 npm run test ./src/test/test_readcsv.ts # test
+npm run save "./data/fake-50000.csv" "myDocu" "nodejsTest" "{\"birthday\":-1, \"name\":1}" # Save csv to MongoDB
 ```

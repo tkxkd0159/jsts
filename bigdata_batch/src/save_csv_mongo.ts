@@ -1,12 +1,12 @@
 import { IndexSpecification } from "mongodb";
 
 import { readFileGenerator } from "./lib/cfs";
-import { client, mgConnectToC } from "./lib/mongo";
+import { client, mgConnectToColl } from "./lib/mongo";
 import { zip } from "./lib/utils"
 
 async function insertCsvToMongo(csv_file: string, collection_name: string, db_name: string, index: IndexSpecification) {
     try {
-        const c = await mgConnectToC(collection_name, db_name)
+        const c = await mgConnectToColl(collection_name, db_name)
         await c.deleteMany({})
         await c.createIndex(index)
 

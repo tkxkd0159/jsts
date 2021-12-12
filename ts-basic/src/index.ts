@@ -20,7 +20,16 @@ const val2 = (new StringComposer('Hello'))
 console.log(val1)
 console.log(val2)
 
+import _ from 'lodash';
+let orig_obj: any = {"a":{"b":4}};
+let clone_obj = {...orig_obj};
+let deepclone_obj = _.cloneDeep(orig_obj);
 
+clone_obj.a.b = 10
+deepclone_obj.a.b = 100
+console.log(orig_obj, clone_obj, deepclone_obj);
 
-
-
+clone_obj.a = "changed"
+console.log(orig_obj, clone_obj, deepclone_obj);
+deepclone_obj.a = "changed 2"
+console.log(orig_obj, clone_obj, deepclone_obj);

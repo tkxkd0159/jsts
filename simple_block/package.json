@@ -12,8 +12,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npx tsc",
-    "start": "npx ts-node ./src/index.ts"
+    "build": "tsc",
+    "start": "ts-node ./src/index.ts"
   },
   "keywords": [],
   "author": "LJS",

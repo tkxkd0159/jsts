@@ -15,8 +15,11 @@
       "forceConsistentCasingInFileNames": true,
       "outDir": "dist",
       "removeComments": true,
-      "sourceMap": true,
-      "baseUrl": "."
+      "baseUrl": ".",
+      "allowJs": true,
+      "declaration": true,
+      "emitDeclarationOnly": false,
+      "declarationMap": true
     },
     "include": [
       "src/**/*",
